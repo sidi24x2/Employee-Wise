@@ -57,7 +57,7 @@ function Header() {
   return (
     <section className="bg-neutral-800 text-white p-3">
       <header className=" w-5/6 m-auto flex flex-col justify-center items-center sm:flex-row sm:justify-between">
-        <div className="mr-1.5">Logo</div>
+        <div className="mr-1.5 sm:mb-4">Logo</div>
         {user && user?.isActive ? (
           <LoggedUser user={user} userData={userData} navigate={navigate} />
         ) : (
