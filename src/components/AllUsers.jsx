@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import api from './constants/urls';
 import UserContext from './contexts/UserContext';
 import { useNavigate } from 'react-router-dom';
@@ -9,6 +9,8 @@ function AllUsers() {
     activePage: 1,
     totalPage: 1,
   });
+  const activeUser = useContext(UserContext);
+
   const [error, setErrors] = useState(null);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
@@ -34,6 +36,10 @@ function AllUsers() {
     fetchUsers();
   }, [page.activePage]);
 
+  if (activeUser.user === null)
+    return (
+      <h2 className="mt-5 text-center text-2xl animate-pulse">Login First</h2>
+    );
   if (error?.users) {
     return <h2>{error.users}</h2>;
   }

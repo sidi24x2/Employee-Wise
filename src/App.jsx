@@ -23,6 +23,29 @@ function App() {
     }
   }, []);
 
+  function Authenticated() {
+    return (
+      <>
+        <Routes>
+          <Route path="/users" element={<AllUsers />} />
+          <Route path="/users/edit/:id" element={<EditUser />} />
+          <Route path="*" element={<Home />} />
+        </Routes>
+      </>
+    );
+  }
+
+  function NonAuthenticated() {
+    return (
+      <>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="*" element={<Home />} />
+        </Routes>
+      </>
+    );
+  }
   return (
     <>
       <div className="min-w-[387px] box-border">
@@ -34,13 +57,8 @@ function App() {
             }}
           >
             <Header />
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/users" element={<AllUsers />} />
-              <Route path="/users/edit/:id" element={<EditUser />} />
-              <Route path="*" element={<Home />} />
-            </Routes>
+
+            {user && user?.isActive ? <Authenticated /> : <NonAuthenticated />}
           </UserContext.Provider>
         </BrowserRouter>
       </div>
