@@ -25,7 +25,7 @@ function App() {
 
   return (
     <>
-      <div className="min-w-[387px] box-border p-5">
+      <div className="min-w-[387px] box-border">
         <BrowserRouter>
           <UserContext.Provider
             value={{

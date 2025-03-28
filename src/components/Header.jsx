@@ -4,14 +4,14 @@ import { NavLink, useNavigate } from 'react-router-dom';
 
 function LoggedUser({ user, userData, navigate }) {
   return (
-    <nav className="flex justify-between items-center">
+    <nav className="flex justify-center items-center sm:flex-row sm:justify-between">
       <NavLink
         to={'/'}
-        className="bg-neutral-400 p-3 rounded-2xl hover:bg-neutral-600 cursor-pointer shadow-2xl mr-5"
+        className="bg-neutral-400 p-3 rounded-2xl hover:bg-neutral-600 cursor-pointer shadow-2xl"
       >
         Home
       </NavLink>
-      <h2 className="mr-1.5">{user?.email}</h2>
+      <h2 className="mx-1.5">{user?.email}</h2>
       {user && (
         <button
           className="bg-neutral-400 p-3 rounded-2xl hover:bg-neutral-600 cursor-pointer shadow-2xl shadow-neutral-50"
@@ -31,7 +31,7 @@ function LoggedUser({ user, userData, navigate }) {
 function NonLoggedUser({ navigate }) {
   return (
     <>
-      <nav className="flex justify-between items-center">
+      <nav className="flex justify-center items-center flex-col sm:flex-row sm:justify-between">
         <NavLink
           to={'/'}
           className="bg-neutral-400 p-3 rounded-2xl hover:bg-neutral-600 cursor-pointer shadow-2xl mr-5"
@@ -56,7 +56,7 @@ function Header() {
 
   return (
     <section className="bg-neutral-800 text-white p-3">
-      <header className=" w-5/6 m-auto flex justify-between items-center ">
+      <header className=" w-5/6 m-auto flex flex-col justify-center items-center sm:flex-row sm:justify-between">
         <div className="mr-1.5">Logo</div>
         {user && user?.isActive ? (
           <LoggedUser user={user} userData={userData} navigate={navigate} />
