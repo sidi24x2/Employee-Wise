@@ -31,7 +31,7 @@ function LoggedUser({ user, userData, navigate }) {
 function NonLoggedUser({ navigate }) {
   return (
     <>
-      <nav className="flex justify-center items-center flex-col sm:flex-row sm:justify-between">
+      <nav className="flex justify-center items-center sm:flex-row sm:justify-between">
         <NavLink
           to={'/'}
           className="bg-neutral-400 p-3 rounded-2xl hover:bg-neutral-600 cursor-pointer shadow-2xl mr-5"
